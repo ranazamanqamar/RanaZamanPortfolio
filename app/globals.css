@@ -2,25 +2,107 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+  --muted: #b2b2b2;
+  --muted-nav: oklch(70.7% 0.022 261.325);
+  --muted-body: oklch(55.1% 0.027 264.364);
+  --border: oklch(92.8% 0.006 264.531);
+  --font-size-xs: clamp(14px, 1.1vw, 14px);
+  --font-size-sm: clamp(17px, 1.4vw, 17px);
+  --font-size-md: clamp(17px, 1.6vw, 20px);
+  --font-size-lg: clamp(20px, 1.8vw, 24px);
+  --font-size-xl: clamp(24px, 2.2vw, 28px);
+  --font-size-2xl: clamp(36px, 5.5vw, 64px);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-nav: var(--muted-nav);
+  --color-muted-body: var(--muted-body);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), "Geist Fallback", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+html.cursor-custom,
+html.cursor-custom *,
+html.cursor-custom a,
+html.cursor-custom button {
+  cursor: none !important;
+}
+
+.portrait-treatment {
+  filter: grayscale(1) contrast(0.92) brightness(1.05);
+  opacity: 0.88;
+  mix-blend-mode: multiply;
+}
+
+.portrait-mask {
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }

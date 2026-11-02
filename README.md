@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rana Zaman Qamar — Portfolio
 
-## Getting Started
+Editorial personal portfolio built with Next.js, TypeScript, Tailwind CSS, Geist, and Motion.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add your portrait
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Replace the grey placeholder with your photo:
 
-## Learn More
+1. Copy your image to `public/images/profile.jpg`
+2. Keep the filename `profile.jpg` (or update `portrait` in `data/site.ts`)
+3. Refresh the browser — CSS applies the muted grey treatment automatically
 
-To learn more about Next.js, take a look at the following resources:
+## Add real projects later
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit `data/projects.ts` and swap the three placeholder entries:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```ts
+{
+  title: "Your Project",
+  description: "Short description.",
+  year: "2026",
+  type: "Web app",
+  image: "/images/your-project.jpg",
+  link: "https://...", // optional
+}
+```
 
-## Deploy on Vercel
+## Contact & socials
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Configured in `data/site.ts` (email, GitHub, LinkedIn).
